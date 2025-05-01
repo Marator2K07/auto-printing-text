@@ -1,6 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import TypingSymbol from "./components/TypingSymbol";
+import { TypingStyle } from "./types";
 
 function App() {
   return (
@@ -16,8 +18,32 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React??
         </a>
+        <TypingSymbol
+          typingStyle={TypingStyle.RANDOM}
+          steps={22}
+          duration={500}
+          target="M"
+        />
+        <TypingSymbol
+          typingStyle={TypingStyle.RANDOM}
+          steps={22}
+          duration={2000}
+          target="O"
+        />
+        <TypingSymbol
+          typingStyle={TypingStyle.RANDOM}
+          steps={22}
+          duration={1000}
+          target="O"
+        />
+        <TypingSymbol
+          typingStyle={TypingStyle.RANDOM}
+          steps={22}
+          duration={1000}
+          target="D"
+        />
       </header>
     </div>
   );

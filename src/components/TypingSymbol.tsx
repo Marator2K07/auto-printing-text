@@ -21,11 +21,12 @@ const TypingSymbol: React.FC<TypingSymbolProps> = ({
     typingStyle: TypingStyle,
     target: string,
     start: string,
+    index: number,
     ms: number
   ) {
     return new Promise<string>((resolve) => {
       setTimeout(() => {
-        let symbol = generateSymbol(typingStyle, target, start);
+        let symbol = generateSymbol(typingStyle, target, start, index);
         resolve(symbol);
       }, ms);
     });
@@ -35,12 +36,15 @@ const TypingSymbol: React.FC<TypingSymbolProps> = ({
     let startSymbol = "";
     const stepSpeed = duration / steps;
 
-    const typingProcess = async () => {
+    const typingProcess = async ()=> {
       for (let i = 0; i < steps; i++) {
+        console.log(steps - i);
+        
         startSymbol = await typingStep(
           typingStyle,
           target,
           startSymbol,
+          steps - i,
           stepSpeed
         );
         setSymbol(startSymbol);
